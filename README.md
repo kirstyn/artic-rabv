@@ -1,7 +1,24 @@
 # artic-rabv
-Repository of material for rabies virus genomic surveillance using MinION sequencing (Version of artic-base modified for rabies virus).  
+Repository of material for rabies virus genomic surveillance using MinION sequencing (modified from [artic-base](https://github.com/artic-network/artic-base).  
 Includes resources and datasets used for sequences in publication "Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes" (Brunker et al, In Prep).  
 
+# instructions to install rabies bioinformatic environment 
+* Install the GitHub repository:  
+```bash
+git clone --recursive https://github.com/kirstyn/artic-rabv.git 
+```
+* Create conda environment to install tools  
+```bash
+conda env create -f artic-rabv/environment.yml
+cd artic-rabv/fieldbioinformatics  
+python setup.py install  
+cd ../..  
+``` 
+
+* Use this command to activate your environment  
+```bash
+source activate artic-rabv  
+```
 # Primer schemes  
 Multiplex primer schemes for rabies virus whole genome sequencing, designed using Primal Scheme (http://primal.zibraproject.org/)  
 rabvTanzDg= primers designed to target Tanzanian rabies virus  
