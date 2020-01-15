@@ -1,4 +1,4 @@
-name: artic-base # rename this to an appropriate name
+name: artic-rabv 
 channels:
   - bioconda
   - conda-forge
