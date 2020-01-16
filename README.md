@@ -1,8 +1,9 @@
-# artic-rabv
-Repository of material for rabies virus genomic surveillance using MinION sequencing (modified from [artic-base](https://github.com/artic-network/artic-base).  
-Includes resources and datasets used for sequences in publication "Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes" (Brunker et al, In Prep).  
+# Artic-rabv
+Repository of material for rabies virus genomic surveillance using MinION sequencing (forked and modified from [artic-base](https://github.com/artic-network/artic-base).  
+Includes resources and datasets used in publication:
+Brunker K, Jaswant G, Thumbi SM et al. Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes [version 1; peer review: awaiting peer review]. Wellcome Open Res 2020, 5:3 (https://doi.org/10.12688/wellcomeopenres.15518.1)
 
-# instructions to install rabies bioinformatic environment 
+# To install: 
 * Install the GitHub repository:  
 ```bash
 git clone --recursive https://github.com/kirstyn/artic-rabv.git 
