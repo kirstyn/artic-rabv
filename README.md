@@ -20,6 +20,11 @@ cd ../..
 ```bash
 source activate artic-rabv  
 ```
+
+* To update your environment after changes to environment file
+```bash
+conda env update --file artic-rabv/environment.yml
+```
 # Primer schemes  
 Multiplex primer schemes for rabies virus whole genome sequencing, designed using Primal Scheme (http://primal.zibraproject.org/)  
 rabvTanzDg= primers designed to target Tanzanian rabies virus  
