@@ -1,3 +1,0 @@
-git+https://github.com/artic-network/fieldbioinformatics.git
-git+https://github.com/artic-network/Porechop.git@v0.3.2pre
-git+https://github.com/nanoporetech/medaka.git
