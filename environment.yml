@@ -27,11 +27,10 @@ dependencies:
   - artic-network::rampart=1.0
   - pip
   - racon=1.3.3
- # - medaka=0.11.4 #has conflicts
+  - medaka=0.11.4 #has conflicts
   - minimap2=2.11 
   - seqtk=1.3
   - snakemake=5.4.3
   - pip:
     - git+https://github.com/artic-network/fieldbioinformatics.git
     - git+https://github.com/artic-network/Porechop.git@v0.3.2pre
-    - git+https://github.com/nanoporetech/medaka.git
