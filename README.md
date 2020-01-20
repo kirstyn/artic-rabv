@@ -14,6 +14,9 @@ conda env create -f artic-rabv/environment.yml
 cd artic-rabv/fieldbioinformatics  
 python setup.py install  
 cd ../..  
+source activate artic-rabv
+pip install medaka
+conda deactivate
 ``` 
 
 * Use this command to activate your environment  
