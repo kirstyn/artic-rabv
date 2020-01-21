@@ -34,7 +34,7 @@ samtools index $output/$bc".primertrimmed.sorted.bam"
 samtools bam2fq $output/$bc".primertrimmed.sorted.bam" > $output/$bc".primertrimmed.sorted".fastq
 
 #produce consensus in medaka
-medaka_consensus -i $output/$bc".primertrimmed.sorted".fastq -d $output/$bc"_racon4".fasta -o $output/$bc"_medaka" -t 2 -m r941_min_fast
+medaka_consensus -i $output/$bc".primertrimmed.sorted".fastq -d $output/$bc"_racon4".fasta -o $output/$bc"_medaka" -t 2 -m r941_min_fast_g303
 
 #fill in gaps if consensus is in segments
 #get positions of missing regions
