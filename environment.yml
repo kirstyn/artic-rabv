@@ -20,7 +20,7 @@ dependencies:
   - nanopolish=0.9.2=py36_ncurses5.9_4
   - phyml=3.3.20190909 # references etetoolkit build
   - pandas=0.23.0=py36_1
-  - samtools=1.8=4
+  - samtools=1.9
   - mafft=7.407=0
   - iqtree=1.6.12
   - datrie=0.8
