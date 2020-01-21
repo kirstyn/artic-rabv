@@ -1,0 +1,40 @@
+#! /bin/bash
+set -e
+#Prelim mapping to generic reference
+
+ref=$1
+runname=$2
+bc=$3
+
+#make directories for storage only if they don't exist already
+mkdir -p ~/pipeline_output/racon_polish/$runname"_racon"
+output=$(echo ~/pipeline_output/racon_polish/$runname"_racon")
+
+minimap2 -x map-ont ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta $runname"_all-"$bc.fastq > $output/$bc"_map0.paf"
+
+racon -t 1 $runname"_all-"$bc.fastq $output/$bc"_map0.paf" ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$bc"_racon0.fasta"
+
+#racon 4x polish
+for i in {1..4}
+do
+minimap2 -x map-ont $output/$bc"_racon"$[i-1].fasta $runname"_all-"$bc.fastq > $output/$bc"_map"$i".paf"
+
+racon -t 1 $runname"_all-"$bc.fastq $output/$bc"_map"$i".paf" ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$bc"_map"$i".fasta"
+
+done
+
+#produce bam file for primer trimming step
+minimap2 -x map-ont $output/$bc"_racon4".fasta $runname"_all-"$bc.fastq | samtools view -u -| samtools sort - -T temp -o $output/$bc".sorted.bam"
+
+#primer trimming
+align_trim  --normalise 200 ~/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $output/$bc".sorted".alignreport.txt < $output/$bc".sorted.bam" 2> $output/$bc".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $output/$bc".primertrimmed.sorted.bam" 
+samtools index $output/$bc".primertrimmed.sorted.bam" 
+
+#convert trimmed bam file to fastq for medaka step
+samtools bam2fq $output/$bc".primertrimmed.sorted.bam" > $output/$bc".primertrimmed.sorted".fastq
+
+#produce consensus in medaka
+medaka_consensus -i $output/$bc".primertrimmed.sorted".fastq -d $output/$bc"_racon4".fasta -o $output/$bc"_medaka" -t 2 -m r941_min_fast
+
+#fill in gaps if consensus is in segments
+#get positions of missing regio
