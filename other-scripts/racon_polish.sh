@@ -12,14 +12,18 @@ output=$(echo ~/pipeline_output/racon_polish/$runname"_racon")
 
 minimap2 -x map-ont ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta $runname"_all-"$bc.fastq > $output/$bc"_map0.paf"
 
-racon -t 1 $runname"_all-"$bc.fastq $output/$bc"_map0.paf" ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$bc"_racon0.fasta"
+racon -m 8 -x -6 -g -8 -w 500 $runname"_all-"$bc.fastq $output/$bc"_map0.paf" ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$bc"_racon0.fasta"
+
+#racon -t 1 $runname"_all-"$bc.fastq $output/$bc"_map0.paf" ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$bc"_racon0.fasta"
 
 #racon 4x polish
 for i in {1..4}
 do
 minimap2 -x map-ont $output/$bc"_racon"$[i-1]".fasta" $runname"_all-"$bc.fastq > $output/$bc"_map"$i".paf"
 
-racon -t 1 $runname"_all-"$bc.fastq $output/$bc"_map"$i".paf" $output/$bc"_racon"$[i-1]".fasta" > $output/$bc"_racon"$i".fasta"
+racon -m 8 -x -6 -g -8 -w 500  $runname"_all-"$bc.fastq $output/$bc"_map"$i".paf" $output/$bc"_racon"$[i-1]".fasta" > $output/$bc"_racon"$i".fasta"
+
+#racon -t 1 $runname"_all-"$bc.fastq $output/$bc"_map"$i".paf" $output/$bc"_racon"$[i-1]".fasta" > $output/$bc"_racon"$i".fasta"
 
 done
 
