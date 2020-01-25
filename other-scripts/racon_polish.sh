@@ -28,17 +28,19 @@ racon -m 8 -x -6 -g -8 -w 500  $runname"_all-"$bc.fastq $output/$bc"_map"$i".paf
 done
 
 #produce bam file for primer trimming step
-minimap2 -ax map-ont $output/$bc"_racon4".fasta $runname"_all-"$bc.fastq | samtools view -u -| samtools sort - -T temp -o $output/$bc".sorted.bam"
+#minimap2 -ax map-ont $output/$bc"_racon4".fasta $runname"_all-"$bc.fastq | samtools view -u -| samtools sort - -T temp -o $output/$bc".sorted.bam"
 
 #primer trimming
-align_trim  --normalise 200 ~/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $output/$bc".sorted".alignreport.txt < $output/$bc".sorted.bam" 2> $output/$bc".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $output/$bc".primertrimmed.sorted.bam" 
-samtools index $output/$bc".primertrimmed.sorted.bam" 
+#align_trim  --normalise 200 ~/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $output/$bc".sorted".alignreport.txt < $output/$bc".sorted.bam" 2> $output/$bc".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $output/$bc".primertrimmed.sorted.bam" 
+#samtools index $output/$bc".primertrimmed.sorted.bam" 
 
 #convert trimmed bam file to fastq for medaka step
-samtools bam2fq $output/$bc".primertrimmed.sorted.bam" > $output/$bc".primertrimmed.sorted".fastq
+#samtools bam2fq $output/$bc".primertrimmed.sorted.bam" > $output/$bc".primertrimmed.sorted".fastq
 
 #produce consensus in medaka
-medaka_consensus -i $output/$bc".primertrimmed.sorted".fastq -d $output/$bc"_racon4".fasta -o $output/$bc"_medaka" -t 2 -m r941_min_fast_g303
+#medaka_consensus -i $output/$bc".primertrimmed.sorted".fastq -d $output/$bc"_racon4".fasta -o $output/$bc"_medaka" -t 2 -m r941_min_fast_g303
+
+medaka_consensus -i $runname"_all-"$bc.fastq -d $output/$bc"_racon4".fasta -o $output/$bc"_medaka" -t 2 -m r941_min_fast_g303
 
 #fill in gaps if consensus is in segments
 #get positions of missing regions
