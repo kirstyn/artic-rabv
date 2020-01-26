@@ -3,6 +3,9 @@ Repository of material for rabies virus genomic surveillance using MinION sequen
 Includes resources and datasets used in publication:
 Brunker K, Jaswant G, Thumbi SM et al. Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes [version 1; peer review: awaiting peer review]. Wellcome Open Res 2020, 5:3 (https://doi.org/10.12688/wellcomeopenres.15518.1)
 
+# In development  
+Scripts currently being modified so may not work currently
+
 # To install: 
 * Install the GitHub repository:  
 ```bash
