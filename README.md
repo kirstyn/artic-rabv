@@ -31,6 +31,10 @@ source activate artic-rabv
 ```bash
 conda env update --file artic-rabv/environment.yml
 ```
+* Enable NVIDIA GPU powered live basecalling (if your laptop has it!). Run only once to set but may need to re-run after MinKNOW updates.
+```bash
+sudo artic-enable-gpu-basecalling
+```
 # Primer schemes  
 Multiplex primer schemes for rabies virus whole genome sequencing, designed using Primal Scheme (http://primal.zibraproject.org/)  
 rabvTanzDg= primers designed to target Tanzanian rabies virus  
