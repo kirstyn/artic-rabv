@@ -12,9 +12,6 @@ output=$(echo ~/pipeline_output/$runname/racon_polish/$nb)
 trimmed=$(echo ~/pipeline_output/$runname/initial_mapTrim/$nb)
 newscheme=$(echo ~/pipeline_output/primer-schemes/$runname"_prelim"/$nb)
 
-#trim primers
-python '~/github/realtime-rabies/rampart/pipelines/process_sample/rules/trim_primers.py' --reads '/media/kirstyn/Peru1_kb/aqp1_gersa_all-NB01.fastq'  --output_reads test.fastq
-
 minimap2 -x map-ont $newscheme/$runname"_prelim".reference.fasta $trimmed/$runname"_"$nb".primertrimmed.nonorm.sorted.fastq" > $output/$nb"_map0.paf"
 
 racon -m 8 -x -6 -g -8 -w 500 $trimmed/$runname"_"$nb".primertrimmed.nonorm.sorted.fastq" $output/$nb"_map0.paf" $newscheme/$runname"_prelim".reference.fasta > $output/$nb"_racon0.fasta"
