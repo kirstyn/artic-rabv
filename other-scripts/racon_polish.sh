@@ -12,18 +12,18 @@ output=$(echo ~/pipeline_output/$runname/racon_polish/$nb)
 trimmed=$(echo ~/pipeline_output/$runname/initial_mapTrim/$nb)
 newscheme=$(echo ~/pipeline_output/primer-schemes/$runname"_prelim"/$nb)
 
-minimap2 -x map-ont $newscheme/$runname"_prelim".reference.fasta $trimmed/$runname"_"$nb".primertrimmed.nonorm.sorted.fastq" > $output/$nb"_map0.paf"
+minimap2 -x map-ont $newscheme/$runname"_prelim".reference.fasta $trimmed/$runname"_"$nb".clipped.fastq" > $output/$nb"_map0.paf"
 
-racon -m 8 -x -6 -g -8 -w 500 $trimmed/$runname"_"$nb".primertrimmed.nonorm.sorted.fastq" $output/$nb"_map0.paf" $newscheme/$runname"_prelim".reference.fasta > $output/$nb"_racon0.fasta"
+racon -m 8 -x -6 -g -8 -w 500 $trimmed/$runname"_"$nb".clipped.fastq" $output/$nb"_map0.paf" $newscheme/$runname"_prelim".reference.fasta > $output/$nb"_racon0.fasta"
 
 #racon -t 1 $runname"_all-"$nb.fastq $output/$nb"_map0.paf" ~/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$nb"_racon0.fasta"
 
 #racon 4x polish
 for i in {1..4}
 do
-minimap2 -x map-ont $output/$nb"_racon"$[i-1]".fasta" $trimmed/$runname"_"$nb".primertrimmed.norm.sorted.fastq" > $output/$nb"_map"$i".paf"
+minimap2 -x map-ont $output/$nb"_racon"$[i-1]".fasta" $trimmed/$runname"_"$nb".clipped.fastq" > $output/$nb"_map"$i".paf"
 
-racon -m 8 -x -6 -g -8 -w 500  $trimmed/$runname"_"$nb".primertrimmed.norm.sorted.fastq" $output/$nb"_map"$i".paf" $output/$nb"_racon"$[i-1]".fasta" > $output/$nb"_racon"$i".fasta"
+racon -m 8 -x -6 -g -8 -w 500  $trimmed/$runname"_"$nb".clipped.fastq" $output/$nb"_map"$i".paf" $output/$nb"_racon"$[i-1]".fasta" > $output/$nb"_racon"$i".fasta"
 
 #racon -t 1 $runname"_all-"$nb.fastq $output/$nb"_map"$i".paf" $output/$nb"_racon"$[i-1]".fasta" > $output/$nb"_racon"$i".fasta"
 
@@ -32,7 +32,7 @@ done
 #produce consensus in medaka
 #medaka_consensus -i $output/$nb".primertrimmed.sorted".fastq -d $output/$nb"_racon4".fasta -o $output/$nb"_medaka" -t 2 -m r941_min_fast_g303
 
-medaka_consensus -i $trimmed/$runname"_"$nb".primertrimmed.norm.sorted.fastq" -d $output/$nb"_racon4".fasta -o $output/$nb"_medaka2" -t 2 -m r941_min_fast_g303
+medaka_consensus -i $trimmed/$runname"_"$nb".clipped" -d $output/$nb"_racon4".fasta -o $output/$nb"_medaka2" -t 2 -m r941_min_fast_g303
 
 #fill in gaps if consensus is in segments
 #get positions of missing regions
