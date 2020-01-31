@@ -25,18 +25,18 @@ mkdir -p ~/pipeline_output/$runname/initial_mapTrim/$nb
 trim=$(echo ~/pipeline_output/$runname/initial_mapTrim/$nb)
 
 #run preliminary mapping step to produce new reference scheme
-~/github/artic-rabv/other-scripts/rabies_prelimMap.sh $ref $pathToFastq $runname $nb
+~/Github/artic-rabv/other-scripts/rabies_prelimMap.sh $ref $pathToFastq $runname $nb
 
 #produce bam file for primer trimming step
 minimap2 -ax map-ont $newscheme/$runname"_prelim".reference.fasta $f | samtools view -u -| samtools sort - -T temp -o $trim/$runname"_"$nb".sorted.bam"
 #primer trimming
-align_trim  --normalise 200 ~/github/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $trim/$runname"_"$nb".sorted".alignreport.txt < $trim/$runname"_"$nb".sorted.bam" 2> $trim/$nb".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $trim/$runname"_"$nb".primertrimmed.sorted.bam"
+align_trim  --normalise 200 ~/Github/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $trim/$runname"_"$nb".sorted".alignreport.txt < $trim/$runname"_"$nb".sorted.bam" 2> $trim/$nb".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $trim/$runname"_"$nb".primertrimmed.sorted.bam"
 samtools index $trim/$runname"_"$nb".primertrimmed.sorted.bam"
-align_trim  ~/github/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $trim/$runname"_"$nb".sorted".alignreport.txt < $trim/$runname"_"$nb".sorted.bam" 2> $trim/$nb".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $trim/$runname"_"$nb".primertrimmed.nonorm.sorted.bam"
+align_trim  ~/Github/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $trim/$runname"_"$nb".sorted".alignreport.txt < $trim/$runname"_"$nb".sorted.bam" 2> $trim/$nb".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $trim/$runname"_"$nb".primertrimmed.nonorm.sorted.bam"
 samtools index $trim/$runname"_"$nb".primertrimmed.nonorm.sorted.bam"
 
 #produce trimmed fastq files
-python "~/github/realtime-rabies/rampart/pipelines/process_sample/rules/trim_primers.py" --reads $f  --output_reads $trim/$runname.clipped.fastq
+python ~/Github/realtime-rabies/rampart/pipelines/process_sample/rules/trim_primers.py --reads $f  --output_reads $trim/$runname.clipped.fastq
 
 #summary mapping stats
 reads=$(samtools view $trim/$runname"_"$nb".sorted.bam" | cut -f 1 | sort | uniq | wc -l)
