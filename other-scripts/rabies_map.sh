@@ -36,7 +36,7 @@ align_trim  ~/github/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report 
 samtools index $trim/$runname"_"$nb".primertrimmed.nonorm.sorted.bam"
 
 #produce trimmed fastq files
-python "~/github/realtime-rabies/rampart/pipelines/process_sample/rules/trim_primers.py" --reads $f  --output_reads $trim/$runname"_"clipped.fastq
+python "~/github/realtime-rabies/rampart/pipelines/process_sample/rules/trim_primers.py" --reads $f  --output_reads $trim/$runname.clipped.fastq
 
 #summary mapping stats
 reads=$(samtools view $trim/$runname"_"$nb".sorted.bam" | cut -f 1 | sort | uniq | wc -l)
