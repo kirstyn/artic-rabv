@@ -35,7 +35,7 @@ samtools index $trim/$runname"_"$nb".primertrimmed.sorted.bam"
 align_trim  ~/Github/artic-rabv/primer-schemes/$ref/V1/$ref.scheme.bed --report $trim/$runname"_"$nb".sorted".alignreport.txt < $trim/$runname"_"$nb".sorted.bam" 2> $trim/$nb".sorted".alignreport.er | samtools view -bS - | samtools sort -T %s - -o $trim/$runname"_"$nb".primertrimmed.nonorm.sorted.bam"
 samtools index $trim/$runname"_"$nb".primertrimmed.nonorm.sorted.bam"
 
-#produce trimmed fastq files
+#produce trimmed fastq files (28 bases trimmed from each end)
 python ~/Github/realtime-rabies/rampart/pipelines/process_sample/rules/trim_primers.py --reads $f  --output_reads $trim/$runname.clipped.fastq
 
 #summary mapping stats
@@ -45,6 +45,8 @@ basesCovered=$(samtools depth $trim/$runname"_"$nb".primertrimmed.sorted.bam" | 
 basesCoveredx20=$(samtools depth $trim/$runname"_"$nb".primertrimmed.sorted.bam" | awk '($3>=20)' |wc -l)
 basesCoveredx100=$(samtools depth $trim/$runname"_"$nb".primertrimmed.sorted.bam" | awk '($3>=100)' |wc -l)
 echo -e $runname"_"${nb}"\t"$runtime"\t"$reads"\t"$mapped"\t"$basesCovered"\t"$basesCoveredx20"\t"$basesCoveredx100 >>$runname"_nb_mappingstats".txt
+#per base coverage
+bedtools genomecov -d -ibam $trim/$runname"_"$nb".primertrimmed.sorted.bam" -g ~/Github/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $trim/$runname"_"$nb".coverage.txt"
 
-  done
+done
 mv $runname"_nb_mappingstats".txt $trim/.
