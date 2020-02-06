@@ -32,11 +32,11 @@ newscheme=$(echo ~/pipeline_output/primer-schemes/$runname"_prelim"/$nb)
 #produce consensus in medaka
 #medaka_consensus -i $output/$nb".primertrimmed.sorted".fastq -d $output/$nb"_racon4".fasta -o $output/$nb"_medaka" -t 2 -m r941_min_fast_g303
 
-medaka_consensus -i $trimmed/$runname"_"$nb".clipped".fastq -d $output/$nb"_racon4".fasta -o $output/$nb"_medaka2" -t 2 -m r941_min_fast_g303
+medaka_consensus -i $trimmed/$runname"_"$nb".clipped".fastq -d $output/$nb"_racon4".fasta -o $output/$nb"_medaka_v2" -t 2 -m r941_min_fast_g303
 
 #fill in gaps if consensus is in segments
 #get positions of missing regions
-cd $output/$nb"_medaka2"
+cd $output/$nb"_medaka_v2"
 grep "^>" consensus.fasta | sed 's/[>:]/\t/g'| cut -f 3 | sed 's/[-]/\t/g' >tmp.txt
 sed -i 's/[.0]//g' tmp.txt
 if [[ $(wc -l <tmp.txt) -ge 1 ]]
@@ -58,3 +58,4 @@ sed -i 's/x/\n/g' consensus2.fasta
 rm -rf consensus.fasta
 mv consensus2.fasta consensus.fasta
 fi
+#bedtools genomecov -d -ibam $trim/$runname"_"$nb".primertrimmed.sorted.bam" -g consensus.fasta > $runname"_"$nb".coverage.txt"

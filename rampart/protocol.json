@@ -1,5 +1,9 @@
 {
-  "name": "ARTIC Ebola virus protocol v2.0",
-  "description": "Amplicon based sequencing of Ebola virus (Zaire species).",
-  "url": "http://artic.network/"
-}
+    "name": "Rabies protocol",
+    "description": "Amplicon based sequencing of rabies virus.",
+    "url": "https://wellcomeopenresearch.org/articles/5-3",
+    "annotationOptions":{
+        "discard_unassigned": "true",
+        "barcode_set": "native"
+        }
+  }
