@@ -9,14 +9,16 @@ nb=$3
 #make directories for storage only if they don't exist already
 mkdir -p ~/pipeline_output/$runname/racon_polish2/$nb
 output=$(echo ~/pipeline_output/$runname/racon_polish2/$nb)
-trimmed=$(echo ~/pipeline_output/$runname/initial_mapTrim/$nb)
+trimmed=$(echo ~/pipeline_output/$runname/mapTrim/$nb)
 newscheme=$(echo ~/pipeline_output/primer-schemes/$runname"_prelim"/$nb)
 
-minimap2 -x map-ont $newscheme/$runname"_prelim".reference.fasta $trimmed/$runname"_"$nb".clipped.fastq" > $output/$nb"_map0.paf"
+
+minimap2 -x map-ont ~/Github/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta $trimmed/$runname"_"$nb".clipped.fastq" > $output/$nb"_map0.paf"
 
 #racon -m 8 -x -6 -g -8 -w 500 $trimmed/$runname"_"$nb".clipped.fastq" $output/$nb"_map0.paf" $newscheme/$runname"_prelim".reference.fasta > $output/$nb"_racon0.fasta"
 
-racon --no-trimming -t 1 $trimmed/$runname"_"$nb".clipped.fastq" $output/$nb"_map0.paf" $newscheme/$runname"_prelim".reference.fasta > $output/$nb"_racon0.fasta"
+racon --no-trimming -t 1 $trimmed/$runname"_"$nb".clipped.fastq" $output/$nb"_map0.paf" ~/Github/artic-rabv/primer-schemes/$ref/V1/$ref.reference.fasta > $output/$nb"_racon0.fasta"
+
 
 #racon 4x polish
 for i in {1..4}
