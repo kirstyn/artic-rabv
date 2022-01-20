@@ -1,0 +1,7 @@
+{
+    "name": "Lepto seq",
+    "annotationOptions":{
+        "minimum_identity": "50",
+        "barcode_set":"native"
+        }
+  }
