@@ -15,10 +15,16 @@ fi
 echo ${runname}
 stub=$(basename $bam)
 stub=${stub%*.sorted.bam}
+mkdir -p ${PWD##*/}_depthFiles
 
+# depth of cov per base
+if [ -f ${PWD##*/}_depthFiles/${id}_${d1}_depth.txt ]
+then
+    continue
+fi
+samtools depth -a $bam -d 500000 > ${PWD##*/}_depthFiles/${stub}_${runname}_depth.txt
 
-#mean=samtools depth $bam |  awk '{sum+=$3; sumsq+=$3*$3} END { print "Average = ",sum/NR; print "Stdev = ",sqrt(sumsq/NR - (sum/NR)**2)}'
-
+# summary of mapped reads
 reads=$(samtools view $bam | cut -f 1 | sort | uniq | wc -l)
 mapped=$(samtools view -F 4 $bam | cut -f 1 | sort | uniq | wc -l)
 mean=$(samtools depth -d 500000 -a $bam | datamash mean 3 sstdev 3 median 3 min 3 max 3)
