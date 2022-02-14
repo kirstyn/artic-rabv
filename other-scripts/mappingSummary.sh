@@ -18,7 +18,7 @@ stub=${stub%*.sorted.bam}
 mkdir -p ${PWD##*/}_depthFiles
 
 # depth of cov per base
-if [ -f ${PWD##*/}_depthFiles/${id}_${d1}_depth.txt ]
+if [ -f ${PWD##*/}_depthFiles/${stub}_${runname}_depth.txt ]
 then
     continue
 fi
