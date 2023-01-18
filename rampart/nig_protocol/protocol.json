@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+    "name": "Rabies protocol: philippines",
+=======
     "name": "Rabies protocol: nigeria",
+>>>>>>> de05a1e62c2d3f8e9811dd4c008a616a82bc3f52
     "description": "Amplicon based sequencing of rabies virus.",
     "url": "https://wellcomeopenresearch.org/articles/5-3",
     "displayOptions": {
