@@ -31,14 +31,12 @@ mean=$(samtools depth -d 500000 -a $bam | datamash mean 3 sstdev 3 median 3 min 
 basesCovered=$(samtools depth $bam | awk '($3>0)' |wc -l)
 basesCoveredx5=$(samtools depth $bam | awk '($3>=5)' |wc -l)
 basesCoveredx20=$(samtools depth $bam | awk '($3>=20)' |wc -l)
-<<<<<<< HEAD
 basesCoveredx100=$(samtools depth $bam | awk '($3>=100)' |wc -l)
 echo -e $runname $stub $reads $mapped $mean $basesCovered $basesCoveredx5 $basesCoveredx20 $basesCoveredx100 $path>> temp.txt
 done
 
 { printf 'runname sample_id total_reads mapped_reads meanReads sd_reads median_reads min_reads max_reads basesCovered_1 basesCovered_5 basesCovered_20 basesCovered_100 filepath\n'; cat temp.txt; }> ${runname}_mappingStats.txt
 gsed -i 's/ /\t/g' ${runname}_mappingStats.txt
-=======
 basesCoveredx200=$(samtools depth $bam | awk '($3>=200)' |wc -l)
 echo -e $runname $stub $reads $mapped $mean $basesCovered $basesCoveredx5 $basesCoveredx20 $basesCoveredx200 $path>> temp.txt
 
