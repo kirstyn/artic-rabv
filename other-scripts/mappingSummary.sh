@@ -52,5 +52,4 @@ done
 
 { printf 'runname sample_id total_reads mapped_reads meanReads sd_reads median_reads min_reads max_reads basesCovered_1 basesCovered_5 basesCovered_20 basesCovered_200 filepath\n'; cat temp.txt; }> ${runname}_mappingStats.txt
 sed -i 's/ /\t/g' ${runname}_mappingStats.txt
->>>>>>> 79a80cb14111f1ee413efe85332cc9b0aa9de217
 rm temp.txt
