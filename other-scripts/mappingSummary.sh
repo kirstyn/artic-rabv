@@ -33,7 +33,7 @@ basesCoveredx5=$(samtools depth $bam | awk '($3>=5)' |wc -l)
 basesCoveredx20=$(samtools depth $bam | awk '($3>=20)' |wc -l)
 basesCoveredx100=$(samtools depth $bam | awk '($3>=100)' |wc -l)
 echo -e $runname $stub $reads $mapped $mean $basesCovered $basesCoveredx5 $basesCoveredx20 $basesCoveredx100 $path>> temp.txt
-done
+
 
 { printf 'runname sample_id total_reads mapped_reads meanReads sd_reads median_reads min_reads max_reads basesCovered_1 basesCovered_5 basesCovered_20 basesCovered_100 filepath\n'; cat temp.txt; }> ${runname}_mappingStats.txt
 sed -i 's/ /\t/g' ${runname}_mappingStats.txt
