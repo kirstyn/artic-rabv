@@ -8,6 +8,6 @@
     "annotationOptions":{
         "minimum_identity": "50",
         "reference_fields":"display_name[display_name]",
-        "barcode_set":"native"
+	"barcode_set":"all"
         }
   }
