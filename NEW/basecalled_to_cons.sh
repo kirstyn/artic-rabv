@@ -17,7 +17,6 @@ scheme=$4
 scheme_v=$5
 #bc_set=( $(grep -o "barcode.." $bc_config | grep "barcode") )
 
-mkdir -p analysis
 mkdir -p analysis/$run_name
 bc_dir=$(builtin cd $path_to_reads; (cd .. && pwd))
 cp $bc_dir/barcodes.csv analysis/$run_name/.
@@ -48,7 +47,7 @@ bc=$(echo basename $f | grep -o "barcode..")
 bc_n=${bc#barcode}
 
 #search for all normal barcode abbreviations
-sample=$(egrep -i "$bc|nb$bc_n|bc$bc_n" $bc_config 2>/dev/null | cut -d "," -f 1)
+sample=$(egrep -i "$bc|nb$bc_n|bc$bc_n" $bc_config 2>/dev/null | cut -d "," -f 2)
 echo $sample
 if [[ -z "$sample" ]];then
 continue
