@@ -24,6 +24,7 @@ cd analysis/$run_name
 # mkdir -p $run_name"_demux"
 bc_config=$(find . -name barcodes.csv)
 
+<<<<<<< Updated upstream
 #
 # #fast basecalling
 # #guppy_basecaller -c dna_r9.4.1_450bps_fast.cfg -i $path_to_reads -s $run_name"_guppy" --recursive -x auto
@@ -32,6 +33,16 @@ bc_config=$(find . -name barcodes.csv)
 # guppy_barcoder -r --require_barcodes_both_ends -i $run_name"_guppy" -s $run_name"_demux" --barcode_kits "$barcodes" -x auto
 # # guppy pre v6.0
 # #guppy_barcoder -r --require_barcodes_both_ends -i $run_name"_guppy" -s $run_name"_demux" --arrangements_files "barcode_arrs_nb12.cfg barcode_arrs_nb24.cfg"
+=======
+#fast basecalling
+#guppy_basecaller -c dna_r9.4.1_450bps_fast.cfg -i $path_to_reads -s $run_name"_guppy" -r -x auto
+#guppy_basecaller -c dna_r9.4.1_450bps_fast.cfg -i $path_to_reads/fast5_* -s $run_name"_guppy" -r -x auto
+
+#demultiplex
+# guppy_barcoder -r --require_barcodes_both_ends -i $path_to_reads -s $run_name"_demux" --barcode_kits "$barcodes" -x auto
+# guppy pre v6.0
+#guppy_barcoder -r --require_barcodes_both_ends -i $run_name"_guppy" -s $run_name"_demux" --arrangements_files "barcode_arrs_nb12.cfg barcode_arrs_nb24.cfg"
+>>>>>>> Stashed changes
 
 #concat reads and filter on read length
 mkdir -p $run_name"_filtered"
