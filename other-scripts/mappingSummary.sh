@@ -3,7 +3,7 @@
 
 set -e
 
-for bam in $(find . -name "*.sorted.bam" ! -name "*trimmed*")
+for bam in $(find . -name "*.sorted.bam")
 do
 dirname=$(dirname $bam)
 runnametest=$(dirname $dirname)
@@ -36,7 +36,7 @@ nonMaskedConsensusCov=$((11923-$count))
 echo -e $runname $stub $reads $mapped $mean $basesCovered $basesCoveredx5 $basesCoveredx20 $basesCoveredx100 $basesCoveredx200 $nonMaskedConsensusCov $path>> temp.txt
 
 { printf 'runname sample_id total_reads mapped_reads meanReads sd_reads median_reads min_reads max_reads basesCovered_1 basesCovered_5 basesCovered_20 basesCovered_100 basesCovered_200 nonMaskedConsensusCov filepath\n'; cat temp.txt; }> ${runname}_mappingStats.txt
-sed -i 's/ /\t/g' ${runname}_mappingStats.txt
+sed -i -e 's/ /\t/g' ${runname}_mappingStats.txt
 
 # depth of cov per base
 if [ -f ${PWD##*/}_depthFiles/${stub}_${runname}_depth.txt ]

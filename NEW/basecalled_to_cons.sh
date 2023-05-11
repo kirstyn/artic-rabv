@@ -45,10 +45,10 @@ bc_config=$(find . -name barcodes.csv)
 >>>>>>> Stashed changes
 
 #concat reads and filter on read length
-mkdir -p $run_name"_filtered"
-find $run_name"_demux"/* -maxdepth 0 -type d ! -name "*unclassified*" |
-parallel --gnu -j $(($(nproc)/2)) \
-artic guppyplex --min-length 350 --max-length 900 --directory {} --output $run_name"_filtered"/{/}.fastq
+# mkdir -p $run_name"_filtered"
+# find $run_name"_demux"/* -maxdepth 0 -type d ! -name "*unclassified*" |
+# parallel --gnu -j $(($(nproc)/2)) \
+# artic guppyplex --min-length 350 --max-length 900 --directory {} --output $run_name"_filtered"/{/}.fastq
 
 #rename files using sample ids from rampart barcode file
 
@@ -68,7 +68,7 @@ else
 mkdir -p $sample
 fi
 #rename files
-artic minion --medaka --medaka-model r941_min_high_g351 --normalise 200 --threads 4 --scheme-directory /home/artic/Documents/Github/artic-rabv/primer-schemes --read-file $f $scheme $sample/$sample
+artic minion --no-frameshifts --medaka --medaka-model r941_min_high_g351 --normalise 200 --threads 4 --scheme-directory /home/artic/Documents/Github/artic-rabv/primer-schemes --read-file $f $scheme $sample/$sample
 #mv $f $run_name"_filtered"/$(basename $f | sed -e "s/$bc/$sample/")#concat reads and filter on read length
 #mv $f $run_name"_filtered"/$(basename $f | sed -e "s/$bc/$sample/")
 
