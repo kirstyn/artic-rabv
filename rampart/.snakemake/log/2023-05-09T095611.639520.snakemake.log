@@ -1,0 +1,57 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	minimap2
+	1	parse_mapping
+	1	unzip
+	4
+
+[Tue May  9 09:56:11 2023]
+rule unzip:
+    input: /var/lib/minknow/data/Tz_Rabies/KCRI_08_May_2023/20230508_1321_MN27883_FAU42930_db906963/fastq_pass/barcode05/FAU42930_pass_barcode05_db906963_a47dd033_80.fastq.gz
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.fastq
+    jobid: 2
+    wildcards: filename_stem=FAU42930_pass_barcode05_db906963_a47dd033_80
+
+[Tue May  9 09:56:11 2023]
+Finished job 2.
+1 of 4 steps (25%) done
+
+[Tue May  9 09:56:11 2023]
+rule minimap2:
+    input: /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.fastq, /home/artic/Github/realtime-rabies/rampart/tza_protocol/references.fasta
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.paf
+    jobid: 3
+    wildcards: filename_stem=FAU42930_pass_barcode05_db906963_a47dd033_80
+    threads: 2
+
+[Tue May  9 09:56:13 2023]
+Finished job 3.
+2 of 4 steps (50%) done
+
+[Tue May  9 09:56:13 2023]
+rule parse_mapping:
+    input: /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.fastq, /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.paf, /home/artic/Github/realtime-rabies/rampart/tza_protocol/references.fasta
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode05/FAU42930_pass_barcode05_db906963_a47dd033_80.csv
+    jobid: 1
+    wildcards: filename_stem=FAU42930_pass_barcode05_db906963_a47dd033_80
+
+Removing temporary output file /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.fastq.
+Removing temporary output file /home/artic/Github/artic-rabv/rampart/annotations/barcode05/temp/FAU42930_pass_barcode05_db906963_a47dd033_80.paf.
+[Tue May  9 09:56:14 2023]
+Finished job 1.
+3 of 4 steps (75%) done
+
+[Tue May  9 09:56:14 2023]
+localrule all:
+    input: /home/artic/Github/artic-rabv/rampart/annotations/barcode05/FAU42930_pass_barcode05_db906963_a47dd033_80.csv
+    jobid: 0
+
+[Tue May  9 09:56:14 2023]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: /home/artic/Github/artic-rabv/rampart/.snakemake/log/2023-05-09T095611.639520.snakemake.log

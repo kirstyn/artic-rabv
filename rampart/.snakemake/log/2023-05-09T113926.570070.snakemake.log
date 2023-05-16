@@ -1,0 +1,45 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	minimap2
+	1	parse_mapping
+	1	unzip
+	4
+
+[Tue May  9 11:39:26 2023]
+rule unzip:
+    input: /var/lib/minknow/data/Tz_Rabies/KCRI_08_May_2023/20230508_1321_MN27883_FAU42930_db906963/fastq_pass/barcode04/FAU42930_pass_barcode04_db906963_a47dd033_1.fastq.gz
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.fastq
+    jobid: 2
+    wildcards: filename_stem=FAU42930_pass_barcode04_db906963_a47dd033_1
+
+[Tue May  9 11:39:26 2023]
+Finished job 2.
+1 of 4 steps (25%) done
+
+[Tue May  9 11:39:26 2023]
+rule minimap2:
+    input: /home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.fastq, /home/artic/Github/artic-rabv/rampart/tza_protocol/rabvTanzDg/references.fasta
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.paf
+    jobid: 3
+    wildcards: filename_stem=FAU42930_pass_barcode04_db906963_a47dd033_1
+    threads: 2
+
+Terminating processes on user request, this might take some time.
+[Tue May  9 11:39:27 2023]
+Error in rule minimap2:
+    jobid: 3
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.paf
+    shell:
+        
+        minimap2 -t 2 -x map-ont         --secondary=no         --paf-no-hit         --cs         /home/artic/Github/artic-rabv/rampart/tza_protocol/rabvTanzDg/references.fasta         /home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.fastq > /home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.paf
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job minimap2 since they might be corrupted:
+/home/artic/Github/artic-rabv/rampart/annotations/barcode04/temp/FAU42930_pass_barcode04_db906963_a47dd033_1.paf
+Complete log: /home/artic/Github/artic-rabv/rampart/.snakemake/log/2023-05-09T113926.570070.snakemake.log
