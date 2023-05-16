@@ -150,8 +150,8 @@ def run(parser, args):
     cmds.append("samtools index %s.trimmed.rg.sorted.bam" % (args.sample))
     cmds.append("samtools index %s.primertrimmed.rg.sorted.bam" % (args.sample))
 
-    # 6) do variant calling on each read group, either using the medaka or nanopolish workflow
-    if args.medaka:
+    
+       if args.medaka:
         for p in pools:
             if os.path.exists("%s.%s.hdf" % (args.sample, p)):
                 os.remove("%s.%s.hdf" % (args.sample, p))
