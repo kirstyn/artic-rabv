@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	minimap2
+	1	parse_mapping
+	1	unzip
+	4
+
+[Tue May  9 11:43:52 2023]
+rule unzip:
+    input: /var/lib/minknow/data/Tz_Rabies/KCRI_08_May_2023/20230508_1321_MN27883_FAU42930_db906963/fastq_pass/barcode06/FAU42930_pass_barcode06_db906963_a47dd033_0.fastq.gz
+    output: /home/artic/Github/artic-rabv/rampart/annotations/barcode06/temp/FAU42930_pass_barcode06_db906963_a47dd033_0.fastq
+    jobid: 2
+    wildcards: filename_stem=FAU42930_pass_barcode06_db906963_a47dd033_0
+
+Terminating processes on user request, this might take some time.
