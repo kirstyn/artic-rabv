@@ -3,7 +3,7 @@
 
 set -e
 
-for bam in $(find . -name "*.sorted.bam")
+for bam in $(find . -name "*.sorted.bam" ! -name "*rg.sorted.bam")
 do
 dirname=$(dirname $bam)
 runnametest=$(dirname $dirname)
