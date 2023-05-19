@@ -1,5 +1,0 @@
-﻿sample	barcode
-tits	barcode01
-balls	barcode02
-buddy	barcode04
-pig	barcode06
