@@ -15,7 +15,8 @@ runname=$(builtin cd ${dirname}; pwd | sed 's/.*\///g')
 fi
 stub=$(basename $bam)
 stub=${stub%*.sorted.bam}
-fasta=${path%*.sorted.bam}.consensus.fasta
+fasta=$(find . -name ${stub}"*.consensus.fasta")
+#{path%*.sorted.bam}.consensus.fasta
 mkdir -p ${PWD##*/}_depthFiles
 
 
