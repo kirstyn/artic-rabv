@@ -10,7 +10,7 @@ dependencies:
      - medaka==1.8.1
      - pysam
      - seaborn
-     - git+https://github.com/centre-for-virus-research/weeSAM.git@master
+     - git+https://github.com/centre-for-virus-research/weeSAM.git
   - artic-network::rampart=1.2.0
   - snakemake-minimal=5.8.1
   #- datamash=1.1.0
