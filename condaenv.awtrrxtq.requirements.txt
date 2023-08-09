@@ -1,0 +1,4 @@
+git+https://github.com/kirstyn/fieldbioinformatics.git@1.3.0-dev
+medaka==1.8.1
+pysam
+seaborn
