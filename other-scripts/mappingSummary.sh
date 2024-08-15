@@ -44,7 +44,7 @@ if [ -f ${PWD##*/}_depthFiles/${stub}_${runname}_depth.txt ]
 then
     continue
 fi
- samtools depth -a $bam -d 500000 > ${PWD##*/}_depthFiles/${stub}_${runname}_depth.txt
+  b
   done
 
 rm temp.txt
