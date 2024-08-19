@@ -1,0 +1,23 @@
+2024-01-24 10:53:33.430781 [ont/message] ONT basecalling software version 7.2.11+0a03b4b93, client-server API version 16.0.0
+config file:        /Applications/MinKNOW.app/Contents/Resources/dorado/data/dna_r9.4.1_450bps_fast.cfg
+input path:         /Users/kirstyn.brunker/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/GitHub/artic-rabv/test_data/test_fast5
+save path:          /Users/kirstyn.brunker/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/GitHub/artic-rabv/test_data
+minimum qscore:     8
+records per file:   4000
+fastq compression:  ON
+alignment file:     /Users/kirstyn.brunker/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/GitHub/artic-rabv/primer-schemes/rabv_ea/V1/rabv_ea.reference.fasta
+alignment type:     auto
+
+Use of this software is permitted solely under the terms of the end user license agreement (EULA).
+By running, copying or accessing this software, you are demonstrating your acceptance of the EULA.
+The EULA may be found in /Applications/MinKNOW.app/Contents/Resources/dorado/bin
+2024-01-24 10:53:33.432463 [ont/info] crashpad_handler not supported on this platform.
+2024-01-24 10:53:33.432856 [ont/info] Connecting to server as 'ont_basecall_client'
+2024-01-24 10:53:33.432917 [ont/info] connection state: preparing_connection
+2024-01-24 10:53:33.433091 [ont/info] connection state: loading_config
+2024-01-24 10:53:33.435701 [ont/info] connection state: loading_alignment_index
+2024-01-24 10:53:34.010744 [ont/error] Connection error. [align_index_unavailable] Error loading index file: /Users/kirstyn.brunker/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/GitHub/artic-rabv/primer-schemes/rabv_ea/V1/rabv_ea.reference.fasta
+2024-01-24 10:53:34.010747 [ont/info] connection state: error [align_index_unavailable] Error loading index file: /Users/kirstyn.brunker/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/GitHub/artic-rabv/primer-schemes/rabv_ea/V1/rabv_ea.reference.fasta
+2024-01-24 10:53:34.011157 [ont/error] Could not connect to server: [align_index_unavailable] Error loading index file: /Users/kirstyn.brunker/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/GitHub/artic-rabv/primer-schemes/rabv_ea/V1/rabv_ea.reference.fasta
+2024-01-24 10:53:34.011712 [ont/error] Basecall client could not connect to server.
+2024-01-24 10:53:34.011796 [ont/warning] An error has occurred. Aborting.

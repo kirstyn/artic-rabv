@@ -1,0 +1,3 @@
+KeyError in line 8 of /Users/kirstyn.brunker/mambaforge/envs/artic-rampart/lib/node_modules/artic-rampart/default_protocol/pipelines/demux_map/Snakefile:
+'output_path'
+  File "/Users/kirstyn.brunker/mambaforge/envs/artic-rampart/lib/node_modules/artic-rampart/default_protocol/pipelines/demux_map/Snakefile", line 8, in <module>
