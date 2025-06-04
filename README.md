@@ -1,9 +1,23 @@
-# Artic-rabv
-### Note: This material supports work published in 2020. For the latest bioinformatic workflow, use the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea).
-Repository of materials for publication:      
-Brunker K, Jaswant G, Thumbi SM et al. Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes [version 1; peer review: awaiting peer review]. Wellcome Open Res 2020, 5:3 (https://doi.org/10.12688/wellcomeopenres.15518.1)   
+## 🧬 Rabies Virus Genomic Surveillance Toolkit
 
-This is for rabies virus genomic surveillance using MinION sequencing (forked and modified from [artic-base](https://github.com/artic-network/artic-base) and the latest conda environment from artic-ncov2019.
+> ⚠️ **This repository supports materials from a 2020 publication on in-country rabies virus genome sequencing using Oxford Nanopore (MinION).**  
+> For the latest workflow, please see the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea).
+
+---
+
+### 📄 Publication
+
+**Brunker K, Jaswant G, Thumbi SM, et al.**  
+*Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes*  
+_Wellcome Open Research_, 2020, 5:3  
+🔗 [DOI: 10.12688/wellcomeopenres.15518.1](https://doi.org/10.12688/wellcomeopenres.15518.1)
+
+---
+
+### 🛠️ About This Repository
+
+This repository contains resources for **rabies virus genomic surveillance using Oxford Nanopore MinION sequencing**.  
+It is based on a fork of the [ARTIC base pipeline](https://github.com/artic-network/artic-base), with modifications and updates drawn from the latest `artic-ncov2019` conda environment.
 
 
 # To install: 
