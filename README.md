@@ -1,4 +1,4 @@
-## 🧬 Rabies Virus Genomic Surveillance Toolkit
+## 🧬 ARTIC-RABV
 
 > ⚠️ **This repository supports materials from a 2020 publication on in-country rabies virus genome sequencing using Oxford Nanopore (MinION).**  
 > For the latest workflow, please see the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea).
