@@ -1,16 +1,20 @@
 ## 🧬 ARTIC-RABV
 
-> ⚠️ **This repository supports materials from a 2020 publication on in-country rabies virus genome sequencing using Oxford Nanopore (MinION).**  
+> ⚠️ **This repository provides materials to support publications from 2020 and 2023 on in-country rabies virus genome sequencing using Oxford Nanopore (MinION).**  
 > For the latest workflow, please see the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea).
 
 ---
 
-### 📄 Publication
-
-**Brunker K, Jaswant G, Thumbi SM, et al.**  
+### 📄 Publications
+**1.** Brunker K, Jaswant G, Thumbi SM, et al.  
 *Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes*  
 _Wellcome Open Research_, 2020, 5:3  
 🔗 [DOI: 10.12688/wellcomeopenres.15518.1](https://doi.org/10.12688/wellcomeopenres.15518.1)
+
+**2.** Bautista C, Jaswant G, French H, Campbell K, Durrant R, Gifford R, et al.  
+*Whole genome sequencing for rapid characterization of rabies virus using nanopore technology*  
+_Journal of Visualized Experiments (JoVE)_  
+🔗 [DOI: 10.3791/65414](https://app.jove.com/t/65414/whole-genome-sequencing-for-rapid-characterization-rabies-virus-using)
 
 ---
 
