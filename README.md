@@ -1,5 +1,5 @@
 # Artic-rabv
-### Note that this material supports work published in 2020, for latest bioinformatic workflow use [RAGE-toolkit](https://github.com/artic-network/artic-base](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea)
+### Note: This material supports work published in 2020. For the latest bioinformatic workflow, use the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea).
 Repository of materials for publication:      
 Brunker K, Jaswant G, Thumbi SM et al. Rapid in-country sequencing of whole virus genomes to inform rabies elimination programmes [version 1; peer review: awaiting peer review]. Wellcome Open Res 2020, 5:3 (https://doi.org/10.12688/wellcomeopenres.15518.1)   
 
