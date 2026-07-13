@@ -8,6 +8,7 @@
 > **For current workflows, documentation, and support, please use:**
 >
 > 👉 https://github.com/RAGE-toolkit/Artic-nf
+> 👉 Protocols.io[https://www.protocols.io/view/step-by-step-rabies-virus-genome-sequencing-protoc-3byl47qnjlo5/v3/v2]
 ---
 
 ### 📄 Publications
