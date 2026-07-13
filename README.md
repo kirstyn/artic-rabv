@@ -3,12 +3,12 @@
 > [!WARNING]
 > This repository is retained for historical/provenance purposes only and is **not the current ARTIC-RABV workflow**.
 >
-> The software, dependencies, and protocols described here may be outdated.
+> The software, dependencies, and protocols described here are likely to be outdated.
 >
 > **For current workflows, documentation, and support, please use:**
 >
-> 👉 https://github.com/RAGE-toolkit/Artic-nf
-> 👉 Protocols.io[https://www.protocols.io/view/step-by-step-rabies-virus-genome-sequencing-protoc-3byl47qnjlo5/v3/v2]
+> 👉 **Workflow:** https://github.com/RAGE-toolkit/Artic-nf  
+> 👉 **Laboratory protocol:** https://www.protocols.io/view/step-by-step-rabies-virus-genome-sequencing-protoc-3byl47qnjlo5/v3
 ---
 
 ### 📄 Publications
