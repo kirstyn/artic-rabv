@@ -1,7 +1,7 @@
 ## 🧬 ARTIC-RABV
 
 > ⚠️ **This repository provides materials to support publications from 2020 and 2023 on in-country rabies virus genome sequencing using Oxford Nanopore (MinION).**  
-> For the latest workflow, please see the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main/meta_data/primer-schemes/rabv_ea).
+> For the latest workflow, please see the [RAGE-toolkit](https://github.com/RAGE-toolkit/Artic-nf/tree/main).
 
 ---
 
